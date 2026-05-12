@@ -9,7 +9,7 @@
 -- =====================================================
 
 DROP DATABASE IF EXISTS pokedex;
-CREATE DATABASE pokedex CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE pokedex;
 USE pokedex;
 
 -- ---------- Tabla de tipos ----------
@@ -18,7 +18,7 @@ CREATE TABLE tipo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL UNIQUE,
     imagen VARCHAR(255) NOT NULL
-) ENGINE=InnoDB;
+);
 
 -- ---------- Tabla principal de pokémon ----------
 -- id          : autoincremental, no editable (consigna)
@@ -33,7 +33,7 @@ CREATE TABLE pokemon (
     imagen VARCHAR(255) NOT NULL,
     tipo_id INT NOT NULL,
     FOREIGN KEY (tipo_id) REFERENCES tipo(id)
-) ENGINE=InnoDB;
+);
 
 -- ---------- Tabla de administradores ----------
 -- password se guarda con password_hash() de PHP, NUNCA en texto plano.
@@ -41,7 +41,7 @@ CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
-) ENGINE=InnoDB;
+);
 
 -- =====================================================
 -- DATOS DE PRUEBA

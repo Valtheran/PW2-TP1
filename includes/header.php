@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +17,8 @@ session_start();
         <a class="navbar-brand" href="index.php">Pokédex</a>
         <?php if (isset($_SESSION['usuario'])): ?>
             <div>
-                <span class="text-light">Usuario <strong><?php echo $_SESSION['usuario']; ?></strong></span>
+                <a href="alta.php" class="btn btn-success btn-sm">+ Nuevo pokémon</a>
+                <span class="text-light ms-2">Usuario <strong><?php echo $_SESSION['usuario']; ?></strong></span>
                 <a href="logout.php" class="btn btn-outline-light btn-sm ms-2">Cerrar sesión</a>
             </div>
         <?php else: ?>
