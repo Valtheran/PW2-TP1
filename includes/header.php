@@ -2,7 +2,21 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-?>
+
+$navUsuario = '';
+if (isset($_SESSION['usuario'])) {
+    $navUsuario = <<<NAV
+    <div>
+        <a href="alta.php" class="btn btn-success btn-sm">+ Nuevo pokémon</a>
+        <span class="text-light ms-2">Usuario <strong>{$_SESSION['usuario']}</strong></span>
+        <a href="logout.php" class="btn btn-outline-light btn-sm ms-2">Cerrar sesión</a>
+    </div>
+    NAV;
+} else {
+    $navUsuario = '<a href="login.php" class="btn btn-outline-light btn-sm">Ingresar</a>';
+}
+
+echo <<<HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,16 +29,10 @@ if (session_status() == PHP_SESSION_NONE) {
 <nav class="navbar navbar-dark bg-dark mb-4">
     <div class="container">
         <a class="navbar-brand" href="index.php">Pokédex</a>
-        <?php if (isset($_SESSION['usuario'])): ?>
-            <div>
-                <a href="alta.php" class="btn btn-success btn-sm">+ Nuevo pokémon</a>
-                <span class="text-light ms-2">Usuario <strong><?php echo $_SESSION['usuario']; ?></strong></span>
-                <a href="logout.php" class="btn btn-outline-light btn-sm ms-2">Cerrar sesión</a>
-            </div>
-        <?php else: ?>
-            <a href="login.php" class="btn btn-outline-light btn-sm">Ingresar</a>
-        <?php endif; ?>
+        $navUsuario
     </div>
 </nav>
 
 <div class="container">
+HTML;
+?>
