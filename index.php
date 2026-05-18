@@ -70,10 +70,10 @@ $pokemones = $resultado->fetch_all(MYSQLI_ASSOC);
     <tbody>
         <?php foreach ($pokemones as $p): ?>
             <tr>
-                <td><img src="<?php echo $p['imagen']; ?>" width="60"></td>
-                <td><img src="<?php echo $p['tipo_imagen']; ?>" width="50" title="<?php echo $p['tipo_nombre']; ?>"></td>
-                <td><?php echo $p['numero']; ?></td>
-                <td><a href="ver.php?id=<?php echo $p['id']; ?>"><?php echo $p['nombre']; ?></a></td>
+                <td><img src="<?php echo $p['imagen']; ?>" width="100"></td>
+                <td><img src="<?php echo $p['tipo_imagen']; ?>" width="40" style="padding-top: 1.5rem;" title="<?php echo $p['tipo_nombre']; ?>"></td>
+                <td style="padding-top: 2.5rem;"><?php echo $p['numero']; ?></td>
+                <td style="padding-top: 2.5rem;"><a href="ver.php?id=<?php echo $p['id']; ?>"><?php echo $p['nombre']; ?></a></td>
                 <?php if (isset($_SESSION['usuario'])): ?>
                     <td>
                         <a href="modificar.php?id=<?php echo $p['id']; ?>" class="btn btn-warning btn-sm">Editar</a>

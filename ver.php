@@ -31,7 +31,7 @@ echo <<<HTML
 <div class="card bg-white">
     <div class="row g-0">
         <div class="col-md-4 text-center p-3">
-            <img src="{$pokemon['imagen']}" class="img-fluid">
+            <img src="{$pokemon['imagen']}" class="img-fluid" width="300">
         </div>
         <div class="col-md-8 p-3">
             <h2>#{$pokemon['numero']} - {$pokemon['nombre']}</h2>
