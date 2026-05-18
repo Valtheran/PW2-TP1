@@ -5,12 +5,6 @@ Trabajo práctico N°2 de **Programación Web**.
 
 Sitio web tipo Pokédex con listado, búsqueda y panel de administrador (alta, baja y modificación de pokémon).
 
-## Tecnologías
-
-- PHP
-- MySQL / MariaDB
-- HTML + Bootstrap 5
-- Sin AJAX (toda la lógica del lado del servidor)
 
 ## Funcionalidades
 
