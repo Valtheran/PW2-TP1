@@ -1,8 +1,4 @@
 <?php
-$conexion = new mysqli("127.0.0.1", "root", "", "pokedex", 3307);
+$conexion = new mysqli("localhost", "root", "", "pokedex");
 $conexion->set_charset("utf8mb4");
-
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
 ?>
