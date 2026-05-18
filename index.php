@@ -41,66 +41,6 @@ if ($buscarTexto == '') {
 $pokemones = $resultado->fetch_all(MYSQLI_ASSOC); // Convertir todo en un array asociativo.
 ?>
 
-    <style>
-        a.navbar-brand {
-            font-size: 25px;
-            text-shadow: 0.3px 0px 0px white;
-        }
-
-        input.form-control::placeholder {
-            color: #00000030;
-        }
-
-        input.form-control {
-            border: 1.7px solid #00000030;
-            box-shadow: 0px 0px 5px #00000029;
-        }
-
-        button.btn.btn-primary {
-            text-shadow: 0.3px 0 0px white;
-            box-shadow: 0.3px 0px 0px #0d6efd, inset -3px 0px 0px #00000020;
-        }
-
-        tr {
-            text-align: center;
-            text-shadow: 0.3px 0px 0px white;
-        }
-
-        th {
-            border: none;
-        }
-
-        a.btn.btn-outline-light.btn-sm {
-            font-size: 20px;
-            padding: 0px 25px 5px 25px;
-            text-shadow: 0.3px 0px 0px white;
-            box-shadow: 1px 1px 0px #ffffff70;
-        }
-
-        a.btn.btn-warning.btn-sm {
-            box-shadow: 2px 2px 0px black;
-            padding-right: 15px;
-            padding-left: 15px;
-            text-shadow: 0.3px 0px 0px black;
-            margin-right: 5px;
-        }
-
-        a.btn.btn-danger.btn-sm {
-            box-shadow: 2px 2px 0px black;
-            padding-right: 15px;
-            padding-left: 15px;
-            text-shadow: 0.3px 0px 0px white;
-            margin-left: 5px;
-        }
-
-        a.btn.btn-success.btn-sm {
-            box-shadow: 0.3px 0px 0px #198754;
-            text-shadow: 0.3px 0px 0px white;
-            font-size: 20px;
-            padding: 0px 25px 5px 25px;
-        }
-    </style>
-
     <form method="GET" class="mb-4">
         <div class="input-group">
             <input type="text" name="buscar" class="form-control" placeholder="Ingrese el nombre, tipo o número de pokémon: " value="<?php echo $buscarTexto; ?>">
@@ -136,7 +76,7 @@ if ($mensaje != '') {
                 <td><img src="<?php echo $p['imagen']; ?>" width="60"></td>
                 <td><img src="<?php echo $p['tipo_imagen']; ?>" width="50" title="<?php echo $p['tipo_nombre']; ?>"></td>
                 <td><?php echo $p['numero']; ?></td>
-                <td><a style="text-shadow: 0.3px 0px 0px #0d6efd" href="ver.php?id=<?php echo $p['id']; ?>"><?php echo $p['nombre']; ?></a></td>
+                <td><a class="pokemon-link" href="ver.php?id=<?php echo $p['id']; ?>"><?php echo $p['nombre']; ?></a></td>
 
                 <?php
                 if (isset($_SESSION['usuario']) == true) {
